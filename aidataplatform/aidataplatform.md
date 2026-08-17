@@ -123,7 +123,7 @@ import urllib.request
 orders_url = ("https://raw.githubusercontent.com/caiogusto2/workshop-dataplatform/main/aidataplatform/arquivos_csv/orders.csv")
 customers_url = ("https://raw.githubusercontent.com/caiogusto2/workshop-dataplatform/main/aidataplatform/arquivos_csv/customers.csv")
 
-base_path = "oci://bucket01@<BUCKET_NAMESPACE>/parquet"
+base_path = "oci://bucket01@TROCAR_AQUI_NAMESPACE/parquet"
 
 orders_path = f"{base_path}/orders"
 customers_path = f"{base_path}/customers"
@@ -172,8 +172,8 @@ Agora faremos a análise exploratória dos dados recém descarregados. Crie um n
 Copie e cole o código abaixo e faça a alteração do namespace conforme indicação
 
 ```python
-orders_path = "oci://bucket01@<BUCKET_NAMESPACE>/parquet/orders"
-customers_path = "oci://bucket01@<BUCKET_NAMESPACE>/parquet/customers"
+orders_path = "oci://bucket01@TROCAR_AQUI_NAMESPACE/parquet/orders"
+customers_path = "oci://bucket01@TROCAR_AQUI_NAMESPACE/parquet/customers"
 
 orders_df = spark.read.parquet(orders_path)
 customers_df = spark.read.parquet(customers_path)
@@ -257,7 +257,7 @@ Na camada Silver começaremos a interagir com o Autonomous Database criado nesse
 from pyspark.sql import functions as F
 import base64
 
-oss_path = "oci://bucket01@<NAMESPACE>"
+oss_path = "oci://bucket01@TROCAR_AQUI_NAMESPACE"
 
 base_path = f"{oss_path}/parquet"
 catalog_location = f"{oss_path}/staging"
@@ -426,7 +426,7 @@ Agora para a camada gold faremos uma pequena agregação. Crie um novo arquivo c
 from pyspark.sql import functions as F
 import base64
 
-oss_path = "oci://bucket01@<NAMESPACE>"
+oss_path = "oci://bucket01@TROCAR_AQUI_NAMESPACE"
 base_path = f"{oss_path}/parquet"
 catalog_location = f"{oss_path}/staging"
 wallet_uri = f"{oss_path}/wallet/wallet_adb01.zip"
@@ -632,7 +632,7 @@ print("=== GOLD TABLE IN ADB ===")
 print("Oracle/ADB validation completed successfully")
 ```
 
-![gold01](images/gol01.png)
+![gold01](images/gold01.png)
 
 ## **5️⃣ Debug e análise de planos e execução**
 
@@ -642,35 +642,35 @@ Na extensão do VS Code, clique na aba de compute e com o botão direito no spar
 
 Navegue pelos componentes do seu cluster, abaixo uma descrição de algumas das telas disponíveis
 
-Detalhes: Mostra informações sobre o cluster hoje em utilização
+**Detalhes:** Mostra informações sobre o cluster hoje em utilização
 
 ![debug02](images/debug02.png)
 
-Connection Details: Mostra alternativas para conectar no cluster através de ferramentas de data viz e outros softwares
+**Connection Details:** Mostra alternativas para conectar no cluster através de ferramentas de data viz e outros softwares
 
 ![debug03](images/debug03.png)
 
-Notebooks: mostra os scripts que utilizam esse cluster spark
+**Notebooks:** mostra os scripts que utilizam esse cluster spark
 
 ![debug04](images/debug04.png)
 
-Library: possibilita a importação de arquivos .jar, criação de arquivos prerequisites para instalação de packages python e outras funcionalidades. Packages instaladas aqui, ficam disponíveis no cluster e não requerem instalações no runtime
+**Library:** possibilita a importação de arquivos .jar, criação de arquivos prerequisites para instalação de packages python e outras funcionalidades. Packages instaladas aqui, ficam disponíveis no cluster e não requerem instalações no runtime
 
 ![debug05](images/debug05.png)
 
-Event logs: mostra informações do cluster spark de forma geral
+**Event logs:** mostra informações do cluster spark de forma geral
 
 ![debug06](images/debug06.png)
 
-Spark UI: é o principal painel para debug e análise de planos de execução spark
+**Spark UI:** é o principal painel para debug e análise de planos de execução spark
 
 ![debug07](images/debug07.png)
 
-Logs: mostra os logs do drivers e executores
+**Logs:** mostra os logs do drivers e executores
 
 ![debug08](images/debug08.png)
 
-Metrics: mostra métricas de alocação de recurso pelo cluster
+**Metrics:** mostra métricas de alocação de recurso pelo cluster
 
 ![debug09](images/debug09.png)
 
@@ -689,15 +689,16 @@ A documentação Oracle passa algumas recomendações para que possamos adaptar 
 - https://docs.oracle.com/en-us/iaas/Content/data-flow/using/spark_oracle_ds_examples.htm#spark_oracle_ds_example_py
 - https://docs.oracle.com/en-us/iaas/Content/data-flow/using/migrate-later-spark.htm
 
-Nos exemplos que criamos nesse hands on buscamos **não utiliza o catálogo de dados afim de garantir a compatibilidade entre AI Data Platform e OCI Data Flow**. 
-1. No AIDP e OCI Data Science a contexto da sessão é criado automaticamente, para o data flow temos que adicionar no começo de nosso código 
+Nos exemplos que criamos nesse hands on buscamos **não utilizar o catálogo de dados afim de garantir a compatibilidade entre AI Data Platform e OCI Data Flow**. 
+1. No AIDP e OCI Data Science o contexto da sessão é criado automaticamente, para o data flow temos que adicionar no começo de nosso código 
 
 ``` python
-spark_builder = SparkSession.builder.appName("My App")
-spark_session = spark_builder.getOrCreate()
+from pyspark.sql import SparkSession
+...
+spark = SparkSession.builder.appName("My App").getOrCreate()
 ```
 
-2. Nas interações com object storage usamos oci:// para referenciar arquivos e paths
+2. Nas interações com object storage usamos **oci://** para referenciar arquivos e paths
 3. Nas interações com o Autonomous fizemos o encoding da wallet e a usamos por exemplo o seguinte procedimento
 
 ``` python
@@ -720,7 +721,7 @@ Seguindo o exemplo temos
 ``` python
     spark.read
     .format("oracle") \
-    .option("walletUri","oci://<bucket>@<namespace>/Wallet_DATABASE.zip") \
+    .option("walletUri","oci://bucket01@TROCAR_AQUI_NAMESPACE/Wallet_DATABASE.zip") \
     .option("connectionId","adb01_high") \
     .option("dbtable", "CUSTOMER_CLASS_AGG_REVIEW") \
     .option("user", "ADMIN") \
@@ -737,7 +738,7 @@ Abaixo o script que usaremos e faremos a adequação: script_silver.py
 from pyspark.sql import functions as F
 import base64
 
-oss_path = "oci://bucket01@NAMESPACE"
+oss_path = "oci://bucket01@TROCAR_AQUI_NAMESPACE"
 base_path = f"{oss_path}/parquet"
 catalog_location = f"{oss_path}/staging"
 orders_path = f"{base_path}/orders"
@@ -901,7 +902,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
 import base64
 
-oss_path = "oci://bucket01@NAMESPACE"
+oss_path = "oci://bucket01@TROCAR_AQUI_NAMESPACE"
 base_path = f"{oss_path}/parquet"
 catalog_location = f"{oss_path}/staging"
 orders_path = f"{base_path}/orders"
@@ -1053,13 +1054,13 @@ print(
 )
 ```
 
-Agora no OCI vamos até o object storage e teremos que criar 2 novos buckets: spark_apps e spark_logs
+Agora no OCI vamos até o object storage e teremos que criar 2 novos buckets: spark\_apps e spark\_logs
 
 ![dataflow02](images/dataflow02.png)
 
 ![dataflow03](images/dataflow03.png)
 
-Faça o upload do arquivo criado em seu desktop para o spark_apps
+Faça o upload do arquivo criado em seu desktop para o spark\_apps
 
 ![dataflow04](images/dataflow04.png)
 
@@ -1095,7 +1096,7 @@ Na aba monitoring vamos ter acesso aos logs de execução e a Spark UI para debu
 
 ![dataflow12](images/dataflow12.png)
 
-Clique no log spark_application_stdout.log.gz e verá o output similar ao que temos enquanto estamos testando a aplicação no AIDP
+Clique no log spark\_application\_stdout.log.gz e verá o output similar ao que temos enquanto estamos testando a aplicação no AIDP
 
 ![dataflow13](images/dataflow13.png)
 
