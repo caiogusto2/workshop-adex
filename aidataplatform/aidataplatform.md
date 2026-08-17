@@ -677,7 +677,7 @@ Navegue pelos componentes do seu cluster, abaixo uma descrição de algumas das 
 - A documentação pública OCI que aborda recomendações e boas práticas de tunning é: https://docs.oracle.com/en-us/iaas/Content/data-flow/using/dfs_administer_data_flow.htm
 - A documentação pública OCI que aborda recomendações de sizing é: https://docs.oracle.com/en-us/iaas/Content/data-flow/using/dfs_tips_for_app_default_size.htm
 
-## **5️⃣ Adaptando códigos do AIDP para rodar no OCI Data Flow**
+## **6️⃣ Adaptando códigos do AIDP para rodar no OCI Data Flow**
 
 A documentação Oracle passa algumas recomendações para que possamos adaptar aplicações e scripts spark para execução no OCI Data Flow, abaixo as principais em destaque:
 - https://docs.oracle.com/en-us/iaas/Content/data-flow/tutorial/migrate-spark-apps/front.htm 
