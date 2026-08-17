@@ -112,7 +112,7 @@ Na extensão do AIDP no VS Code, primeiramente veja se o workspace01 esta seleci
 
 ![bronze02](images/bronze02.png)
 
-Depois clique com o botão direito e create file, dê o nome de script_bronze.py
+Depois clique com o botão direito e create file, dê o nome de `script_bronze.py`
 
 ![bronze03](images/bronze03.png)
 
@@ -167,7 +167,7 @@ Clique em run on AIDP Cluster e depois selecione o seu cluster na aba superior
 
 ### **➡️ Análise exploratória da camada Bronze**
 
-Agora faremos a análise exploratória dos dados recém descarregados. Crie um novo arquivo python com o nome explora_bronze.py.
+Agora faremos a análise exploratória dos dados recém descarregados. Crie um novo arquivo python com o nome `explora_bronze.py`.
 
 Copie e cole o código abaixo e faça a alteração do namespace conforme indicação
 
@@ -251,7 +251,7 @@ Salve o arquivo localmente, clique com o botão direito para fazer o push to ser
 
 ## **3️⃣ Criação da camada Silver**
 
-Na camada Silver começaremos a interagir com o Autonomous Database criado nesse workshop. Na extensão do VS Code, crie um novo arquivo chamado script_silver.py. Copie e cole o conteudo abaixo realizando as alterações necessárias: <NAMESPACE>
+Na camada Silver começaremos a interagir com o Autonomous Database criado nesse workshop. Na extensão do VS Code, crie um novo arquivo chamado `script_silver.py`. Copie e cole o conteudo abaixo realizando as alterações necessárias: `TROCAR_AQUI_NAMESPACE`
 
 ```python
 from pyspark.sql import functions as F
@@ -420,7 +420,7 @@ Salve o arquivo, faça o push to server e execute o script
 
 ## **4️⃣ Criação da camada Gold**
 
-Agora para a camada gold faremos uma pequena agregação. Crie um novo arquivo chamado script_gold.py. Copie e cole o conteudo abaixo
+Agora para a camada gold faremos uma pequena agregação. Crie um novo arquivo chamado `script_gold.py`. Copie e cole o conteudo abaixo
 
 ```python
 from pyspark.sql import functions as F
@@ -892,7 +892,7 @@ print(
 )
 ```
 
-Crie um arquivo no seu desktop, dê o nome de script_silver.py, copie e cole o conteudo abaixo, faça a alteração do NAMESPACE para o seu ambiente e salve o arquivo
+Crie um arquivo no seu desktop, dê o nome de `script_silver.py`, copie e cole o conteudo abaixo, faça a alteração do NAMESPACE para o seu ambiente e salve o arquivo
 
 ![dataflow01](images/dataflow01.png)
 
@@ -1054,13 +1054,13 @@ print(
 )
 ```
 
-Agora no OCI vamos até o object storage e teremos que criar 2 novos buckets: spark\_apps e spark\_logs
+Agora no OCI vamos até o object storage e teremos que criar 2 novos buckets: `spark_apps` e `spark_logs`
 
 ![dataflow02](images/dataflow02.png)
 
 ![dataflow03](images/dataflow03.png)
 
-Faça o upload do arquivo criado em seu desktop para o spark\_apps
+Faça o upload do arquivo criado em seu desktop para o `spark_apps`
 
 ![dataflow04](images/dataflow04.png)
 
@@ -1096,7 +1096,7 @@ Na aba monitoring vamos ter acesso aos logs de execução e a Spark UI para debu
 
 ![dataflow12](images/dataflow12.png)
 
-Clique no log spark\_application\_stdout.log.gz e verá o output similar ao que temos enquanto estamos testando a aplicação no AIDP
+Clique no log `spark_application_stdout.log.gz` e verá o output similar ao que temos enquanto estamos testando a aplicação no AIDP
 
 ![dataflow13](images/dataflow13.png)
 
