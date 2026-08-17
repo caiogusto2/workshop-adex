@@ -715,7 +715,9 @@ spark = SparkSession.builder.appName("My App").getOrCreate()
 ```
 
 No código acima o procedimento existe apenas para o AI Data Platform, temos que buscar um sintaxe compatível com o OCI Data Flow para correto funcionamento de nossas aplicações. 
-A documentação que nos ajuda é: https://github.com/oracle-samples/oracle-dataflow-samples/tree/main/python/loadadw_simplified e https://docs.oracle.com/en-us/iaas/Content/data-flow/using/spark_oracle_ds_examples.htm#spark_oracle_ds_example_py
+A documentação que nos ajuda é:
+- https://github.com/oracle-samples/oracle-dataflow-samples/tree/main/python/loadadw_simplified
+- https://docs.oracle.com/en-us/iaas/Content/data-flow/using/spark_oracle_ds_examples.htm#spark_oracle_ds_example_py
 
 Seguindo o exemplo temos
 ``` python
