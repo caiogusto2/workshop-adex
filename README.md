@@ -150,8 +150,6 @@ workshop-adex/
 │   └── aidataplatform.md  # AIDP hands-on guide
 │
 ├── autonomousdb/          # Autonomous Database materials
-├── slides/                # Workshop presentations
-├── workshops/             # Additional hands-on labs
 ├── index.html             # Workshop web entry point
 └── README.md              # Repository overview
 ```
