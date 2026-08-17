@@ -67,22 +67,6 @@ Supporting material for preparing the environment before starting the hands-on l
 
 ---
 
-### 🧑‍💻 Additional Workshops
-
-Additional workshop environments and exercises are available in the `workshops` directory.
-
-👉 [Explore additional workshops](./workshops/)
-
----
-
-### 📊 Presentations
-
-Presentation materials used to support the workshops are available in the `slides` directory.
-
-👉 [Workshop slides](./slides/)
-
----
-
 ## 🏗️ Architecture
 
 Some workshops in this repository demonstrate an end-to-end data architecture similar to:
