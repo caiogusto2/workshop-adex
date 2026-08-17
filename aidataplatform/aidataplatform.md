@@ -736,7 +736,7 @@ Abaixo o script que usaremos e faremos a adequação: script_silver.py
 from pyspark.sql import functions as F
 import base64
 
-oss_path = "oci://bucket01@<NAMESPACE>"
+oss_path = "oci://bucket01@NAMESPACE"
 base_path = f"{oss_path}/parquet"
 catalog_location = f"{oss_path}/staging"
 orders_path = f"{base_path}/orders"
@@ -890,7 +890,7 @@ print(
 )
 ```
 
-Crie um arquivo no seu desktop, dê o nome de script_silver.py, copie e cole o conteudo abaixo, faça a alteração do namespace para o seu ambiente e salve o arquivo
+Crie um arquivo no seu desktop, dê o nome de script_silver.py, copie e cole o conteudo abaixo, faça a alteração do NAMESPACE para o seu ambiente e salve o arquivo
 
 ![dataflow01](images/dataflow01.png)
 
@@ -900,7 +900,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
 import base64
 
-oss_path = "oci://bucket01@idi1o0a010nx"
+oss_path = "oci://bucket01@NAMESPACE"
 base_path = f"{oss_path}/parquet"
 catalog_location = f"{oss_path}/staging"
 orders_path = f"{base_path}/orders"
