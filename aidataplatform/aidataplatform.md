@@ -7,10 +7,11 @@ Descobrir como utilizar de forma prática o serviço OCI AI Data Platform em con
 O que você aprenderá:
 
 - Preparar a infraestrutura do OCI AI Data Platform.
-- Criar catálogo, volume, workspace e cluster Spark.
+- Criar workspace e cluster Spark.
 - Realizar verificações de qualidade e análise exploratória dos dados.
 - Criar as camadas da arquitetura medalhão com PySpark e autonomous.
 - Utilizar o VS Code como ferramenta de desenvolvimento e interação com o AIDP
+- Converter códigos criados no AIDP para execução no OCI Data Flow
 
 ### _**Aproveite sua experiência na Oracle Cloud!**_
 
