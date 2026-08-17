@@ -1,0 +1,18 @@
+{
+  "workshoptitle": "Workshop Claro ADEX (AIDP + Autonomous + Dataflow)",
+  "help": " ",
+	"tutorials": [
+    {
+      "title": "Configuração do Ambiente de Laboratório",
+      "filename": "0-pt-config-lab/0-pt-config-lab.md"
+    },
+    {
+      "title": "Laboratório 1 - OCI AI Data Platform",
+      "filename": "aidataplatform/aidataplatform.md"
+    },
+    {
+      "title": "Laboratório 2 - Oracle Autonomous Database",
+      "filename": "autonomousdb/autonomousdb.md"
+    }
+  ]
+}
