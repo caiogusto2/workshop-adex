@@ -200,10 +200,10 @@ Copie e cole o código abaixo (observação: vamos ter que fazer algumas altera�
 BEGIN
    DBMS_CLOUD.CREATE_CREDENTIAL (
        credential_name => 'OBJ_STORE_CRED',
-       user_ocid       => '<USER_OCID>',
-       tenancy_ocid    => '<TENANCY_OCID>',
-       private_key     => '<PRIVATE_KEY_SEM_CABEÇALHO_RODAPÉ>',
-       fingerprint     => '<FINGERPRINT_CHAVE>');
+       user_ocid       => 'USER_OCID',
+       tenancy_ocid    => 'TENANCY_OCID',
+       private_key     => 'PRIVATE_KEY_SEM_CABEÇALHO_RODAPÉ',
+       fingerprint     => 'FINGERPRINT_CHAVE');
 END;
 /
 
